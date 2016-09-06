@@ -1,12 +1,26 @@
 from urllib import request 
 
-image_url="http://images.broadwayworld.com/columnpic/bare181.jpg"
-path="./images"
+def image_download(image_url,save_image_name):
 
-req=request.Request(image_url)
-req.add_header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36")
-conn=request.urlopen(req)
+    save_path="./images"
 
-with open("./images/1.jpg","wb") as f:
-    f.write(conn.read())
-    f.close()
+    req=request.Request(image_url)
+    req.add_header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36")
+    
+    try:
+        conn=request.urlopen(req)
+        save_image(save_image_name,conn.read())
+    except Exception as e:
+        print(image_url+" failure")
+        print(e)
+    
+def save_image(save_image_name,content):
+    with open("./images/"+save_image_name,"wb") as f:
+        f.write(content)
+        f.close()
+
+if __name__=="__main__":
+    image_download("http://images.broadwayworld.com/columnpic/bare181.jpg","1.jpg")
+    image_download("http://www.absolutely.net/wenn/handy_manny_05_wenn5360250.jpg","2.jpg")
+    image_download("http://images.broadwayworld.com/columnpic/bare181.jpg","3.jpg")
+    image_download("http://www.absolutely.net/wenn/handy_manny_05_wenn5360250.jpg","4.jpg")
