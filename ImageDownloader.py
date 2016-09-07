@@ -10,14 +10,13 @@ def image_download(image_url,save_image_name):
     try:
         conn=request.urlopen(req)
         save_image(save_image_name,conn.read())
+        print(image_url+" success ")
     except Exception as e:
-        print(image_url+" failure")
-        print(e)
+        print(image_url+" failure "+str(e))
     
 def save_image(save_image_name,content):
     with open("./images/"+save_image_name,"wb") as f:
         f.write(content)
-        f.close()
 
 if __name__=="__main__":
     image_download("http://images.broadwayworld.com/columnpic/bare181.jpg","1.jpg")

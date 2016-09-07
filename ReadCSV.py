@@ -7,9 +7,10 @@ def readcsv(csv_path):
         for line in lines:
             url_collection.append(line[0])
 
-    return url_collection[2:]
+    return set(url_collection[2:])
 
 if __name__=="__main__":
     col=readcsv("./url/kbvt_lfpw_v1_train.csv")
     print(len(col))
+    print(col)
     
