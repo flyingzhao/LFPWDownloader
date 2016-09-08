@@ -3,3 +3,11 @@
 which was trained on 1,132 images and tested on 300 images.,
 and so the data set is divided into two files, one for training and testing. 
 
+Multiprocessing support:
+
+Pool:4 time:1305.68s 
+
+Pool:8 time: 
+
+
+
