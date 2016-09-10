@@ -5,9 +5,9 @@ and so the data set is divided into two files, one for training and testing.
 
 Multiprocessing support:
 
-Pool:4 time:1305.68s 
+Pool:4 time:1305s 
 
-Pool:8 time: 
+Pool:8 time: 324s
 
 
 
